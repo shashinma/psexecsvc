@@ -416,7 +416,7 @@ class RemoteStdInPipe(Pipes):
         self.shell = RemoteShell(self.server, self.port, self.credentials, self.tid, self.fid, self.share, self.transport, self.stdout_pipe, self.stderr_pipe)
         self.shell.cmdloop()
 
-if __name__ == "__main__":
+def main():
     print(version.BANNER)
 
     parser = argparse.ArgumentParser(add_help = True, description = "PSExeSVC remote orchestrator")
@@ -481,3 +481,6 @@ if __name__ == "__main__":
         options.k = True
 
     PSEXESVC(username, password, domain, options).run()
+
+if __name__ == "__main__":
+    main()
