@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Setup script for psexecsvc."""
 
+import os
 from setuptools import setup
 
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname), encoding="utf-8").read()
 
 setup(
     name="psexecsvc",
@@ -12,19 +13,15 @@ setup(
     author="deft_, cablethief, randomwalksp (reino)",
     author_email="",
     description="PSExeSVC remote orchestrator",
-    long_description=long_description,
+    long_description=read("README.md"),
     long_description_content_type="text/markdown",
     url="https://github.com/sensepost/psexecsvc",
     py_modules=["psexecsvc"],
+    scripts=["psexecsvc.py"],
     python_requires=">=3.6",
     install_requires=[
         "impacket",
     ],
-    entry_points={
-        "console_scripts": [
-            "psexecsvc.py=psexecsvc:main",
-        ],
-    },
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Information Technology",
