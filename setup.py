@@ -22,7 +22,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "psexecsvc=psexecsvc:main",
+            "psexecsvc.py=psexecsvc:main",
         ],
     },
     classifiers=[
